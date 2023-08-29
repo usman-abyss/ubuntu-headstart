@@ -1,3 +1,6 @@
+# Update and upgrade
+sudo apt update && sudo apt upgrade -y
+
 # Install essentials
 sudo apt install git curl net-tools vim zsh build-essential -y
 
