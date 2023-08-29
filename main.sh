@@ -15,21 +15,21 @@ sudo apt install ./code_*.deb
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # SSH Setup
+cd ~/.ssh
 ssh-keygen -t ed25519 -C u.ahmed@abysssolutions.com.au
 eval "$(ssh-agent -s)"
-cp ./config ~/.ssh/
 ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+read -p "\nAdd the above key to github and press enter to continue\n"
 ssh -T git@github.com
 
 # Cloning repos
-cd
+cd ~
 mkdir Work
 cd Work
 git clone git@github.com:abyss-solutions/fabric-api-ts.git
 git clone git@github.com:abyss-solutions/fabric-client-react.git
 
-cp client.env ~/Work/fabric-client-react/.env
-cp api.env ~/Work/fabric-api-ts/.env
 
 # NVM
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
@@ -53,14 +53,14 @@ npm i -g yarn
 
 
 # Installing snaps
-sudo snap install spotify nvim
+sudo snap install nvim
 sudo snap install nvim --classic
 
 # ZSH
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
-cp ./.zshrc ~/.zshrc
+cp ./dotfiles/.zshrc ~/.zshrc
 
 
 # Docker
@@ -98,7 +98,7 @@ wget https://downloads.mongodb.com/compass/mongodb-compass_1.38.2_amd64.deb
 sudo apt install ./mongodb-compass_*.deb
 
 # Fonts
-cd
+cd ~
 mkdir ~/.fonts
 cd .fonts
 wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
