@@ -11,9 +11,6 @@ wget https://az764295.vo.msecnd.net/stable/695af097c7bd098fbf017ce3ac85e09bbc5dd
 sudo apt install ./code_*.deb
 
 
-# Ohmyzsh
-sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-
 # SSH Setup
 cd ~/.ssh
 ssh-keygen -t ed25519 -C u.ahmed@abysssolutions.com.au
@@ -59,8 +56,6 @@ sudo snap install nvim --classic
 # ZSH
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-
-cp ./dotfiles/.zshrc ~/.zshrc
 
 
 # Docker
@@ -108,4 +103,7 @@ mv fonts/ttf/*.ttf ./
 rm fonts -r
 
 
+# Ohmyzsh
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
+cp ./dotfiles/.zshrc ~/.zshrc
